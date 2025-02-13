@@ -1,0 +1,21 @@
+name: CI/CD Pipeline
+
+# Trigger the workflow on push to main or on PR to main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the job(s) for the workflow
+jobs:
+  # Job to set up the environment, install dependencies, and run tests
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checkout the repo
+      - run: echo "job is running in production"
