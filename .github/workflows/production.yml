@@ -1,0 +1,15 @@
+name: Triggered Workflow
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow]  # Custom event type
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run a custom script
+        run: echo "This workflow was triggered by another repository!"
